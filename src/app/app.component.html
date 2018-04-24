@@ -1,0 +1,49 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="row">
+  <br><br>
+  <div class="col s8 offset-s2">
+    <div class="card horizontal green lighten-1">
+      <div class="card-image ">
+        <img width="100" alt="Pokeball" src="https://vignette.wikia.nocookie.net/clubpenguin/images/4/4c/Pokeball.png/revision/latest?cb=20130901024704">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content white-text">
+          <h4 class="center">Welcome to {{title}}</h4>
+          <br>
+          <input class="center white-text" type="text" placeholder='{{placeholder}}' (input)="onTxtChange($event.target.value)">
+        </div>
+      </div>
+    </div>
+    <div *ngIf="search" class="card horizontal">
+      <h3 class="container" *ngIf="!pkmnData.id">Searching ...</h3>
+      <h3 class="container" *ngIf="notFound">Sorry, that Pokemon has yet to be discovered</h3>
+      <div *ngIf="pkmnData.sprites" class="card-image">
+        <img class="sprite" alt="{{pkmnData.name}}" src="{{pkmnData.sprites.front_default}}">
+      </div>
+      <div *ngIf="pkmnData.name" class="card-stacked">
+        <div class="card-content col s10 offset-s1">
+          <h4>{{pkmnData.name[0].toUpperCase()}}{{pkmnData.name.substring(1)}} - {{pkmnData.id}}</h4>
+          <ul class="col s9 offset-s2">
+            <li>Type :</li>
+            <li>
+              <ul class="col s8 offset-s3"> 
+                <li>{{pkmnData.types[0].type.name[0].toUpperCase()}}{{pkmnData.types[0].type.name.substring(1)}}</li>
+                <li *ngIf="pkmnData.types[1]">{{pkmnData.types[1].type.name[0].toUpperCase()}}{{pkmnData.types[1].type.name.substring(1)}}</li>
+              </ul>
+            </li>
+            <li class="row"></li>
+            <li>Abilities:</li>
+            <li>
+              <ul class="col s8 offset-s3">
+                <li>{{pkmnData.abilities[0].ability.name[0].toUpperCase()}}{{pkmnData.abilities[0].ability.name.substring(1)}}</li>
+                <li *ngIf="pkmnData.abilities[1]">{{pkmnData.abilities[1].ability.name[0].toUpperCase()}}{{pkmnData.abilities[1].ability.name.substring(1)}}</li>
+                <li *ngIf="pkmnData.abilities[2]">{{pkmnData.abilities[2].ability.name[0].toUpperCase()}}{{pkmnData.abilities[2].ability.name.substring(1)}}</li>
+              </ul>
+            </li>
+          </ul>
+          <br>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.4/css/materialize.min.css");
+
+.sprite{
+    height: 200px;
+    width: 200px;
+    margin-top: 25%;
+    margin-left: 20px
+}
